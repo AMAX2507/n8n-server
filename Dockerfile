@@ -3,5 +3,9 @@ FROM n8nio/n8n
 ENV N8N_BASIC_AUTH_ACTIVE=true
 ENV N8N_BASIC_AUTH_USER=admin
 ENV N8N_BASIC_AUTH_PASSWORD=yourpassword123
+ENV N8N_HOST=0.0.0.0
 
-CMD n8n start --port=$PORT --host=0.0.0.0
+EXPOSE 5678
+
+ENTRYPOINT ["n8n"]
+CMD ["start", "--host=0.0.0.0", "--port=5678"]
